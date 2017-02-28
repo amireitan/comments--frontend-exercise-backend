@@ -20,6 +20,7 @@ class Comments extends Component {
 
     fetchComments() {
       this.props.fetchCommentsData();
+      //Added to simulate polling from the server (usually we'll get feeds by websocket) 
       this.timeOut = window.setTimeout(this.fetchComments.bind(this), 10000)
     }
 
