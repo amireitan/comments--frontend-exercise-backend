@@ -1,0 +1,75 @@
+
+.app__comments {
+    width: 100%;
+    height: 90%;
+    max-width: 500px;
+    min-height: 200px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.app__comments__header {
+    background: #80a2ff;
+    color: $color2;
+    padding: 15px;
+    border: 1px solid $color3;
+}
+
+.app_comments_list {
+	overflow: auto;
+	height: calc(100% - 60px);
+}
+
+.app_comments_item {
+    font-size: 12px;
+    padding: 15px;
+    border-top: 1px solid $color3;
+    border-right: 1px solid $color3;
+    border-left: 1px solid $color3;
+    background: #fff;
+    &:last-of-type {
+        border-bottom: 1px solid $color3;
+    }
+}
+
+.app_comments_item_content {
+    width: calc(100% - 50px);
+    float: left;
+}
+.app_comments_item_content__mail {
+    padding-bottom: 5px;
+}
+
+.app_comments_item_content__comment {
+    height: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $color4;   
+}
+
+.app_comments_item_buttons {
+    width: 50px;
+    float: right;
+    top: 15px;
+    position: relative;
+}
+
+.app_comments_item_buttons_edit {
+    border: none;
+    cursor: pointer;
+    margin-left: 7px;
+    @extend %button-edit;
+}
+
+.app_comments_item_buttons_delete {
+    border: none;
+    cursor: pointer;
+    float: right;
+    @extend %button-delete;
+}
+

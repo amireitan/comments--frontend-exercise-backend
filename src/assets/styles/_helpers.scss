@@ -1,0 +1,13 @@
+.u-hidden {
+	visibility: hidden !important;
+}
+
+.u-clearFix {
+	&:before, &:after {
+		content:"";
+		display:table;
+	}
+	&:after {
+		clear:both;
+	}
+}

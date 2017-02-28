@@ -1,0 +1,23 @@
+%button-edit {
+    cursor: pointer;
+    @include backgroundImage($url:'images/pencil.png',$width: 17px, $height: 18px);
+}
+
+%button-delete {
+    cursor: pointer;
+    @include backgroundImage($url:'images/trash.png',$width: 17px, $height: 20px);
+}
+
+%button-close {
+    cursor: pointer;
+    @include backgroundImage($url:'images/close.png',$width: 20px, $height: 20px);
+}
+
+%button {	       
+    width: 82px;
+    height: 35px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+

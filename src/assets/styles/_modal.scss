@@ -1,0 +1,144 @@
+.app_modal{
+  transition: 2s all;
+  &:before{
+    content: "";
+    background: rgba(0,0,0,.6);
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 10;
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+  }
+}
+
+@keyframes fromTop {
+    from {top: -50%; opacity: 0}
+    to   {top: 0; opacity: 1}
+}
+
+/**********************
+    CONTENT
+ **********************/
+.app_modal__content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-bottom: 1px solid grey;
+    border-radius: 10px;
+    background: #fefefe;
+    border-radius: 5px;
+    height: 200px;
+    z-index: 10;
+    max-width: 400px;
+    animation-fill-mode: forwards;
+    animation-name: fromTop;
+    animation-duration: 0.3s;
+
+    @media only screen and (max-width: 450px) {
+      width: 300px;
+      height: 300px;
+      left: 50%;
+      margin-left: -135px;
+    }
+}
+
+.app_modal__content--delete {
+    width:270px;
+    height: 128px;
+}
+
+
+.app_modal__content--edit {
+    width:270px;
+    height: 220px;
+}
+
+/**********************
+    HEADER
+ **********************/
+.app_modal__content__header {
+    border-bottom: 1px solid #ccc;
+    padding: 5px, 0;
+    padding-bottom: 10px;
+    padding: 15px 20px;
+}
+
+.app_modal__content__header__icon {
+    float: left;
+}
+
+.app_modal__content__header__icon-edit {
+    @extend %button-edit;
+}
+
+.app_modal__content__header__icon-delete {
+    @extend %button-delete;
+}
+
+.app_modal__content__header__title {
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 23px;
+    float: left;
+    margin-left: 5px;
+    color: #868686;
+}
+
+.app_modal__content__header__close {
+    @extend %button-close;
+    float: right;
+    position: relative;
+    top: 2px;
+}
+
+/**********************
+        MAIN
+ **********************/
+ .app_modal__content__main {
+    padding: 20px 20px 4px 20px;
+    background: #f9f9f9;
+
+    textarea {
+        width: 230px;
+        height: 80px;
+        padding: 10px;
+        color: $color4;
+        border: 1px solid #ccc;
+    }
+ }
+
+ .app_modal__content__main__message {
+     padding: 20px;
+     text-align: center;
+ }
+
+/**********************
+        FOOTER
+ **********************/
+ .app_modal__content__footer {
+    padding: 5px 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+ }
+
+ .app_modal__content__footer__buttons {
+    color: white;
+    float: right;
+    margin: 0 20px 15px 20px;
+ }
+
+ .app_modal__content__footer__first {
+    @extend %button;
+    background: #878787;
+    margin-right: 10px;
+ }
+
+ .app_modal__content__footer__second {
+    @extend %button;
+    background: #f0453b;
+ }

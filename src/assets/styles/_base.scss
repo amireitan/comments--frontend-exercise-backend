@@ -1,0 +1,25 @@
+/********************
+	Scrollbar
+ ********************/
+::-webkit-scrollbar {
+    width: 9px;
+	height: 34px;
+}
+ 
+::-webkit-scrollbar-track {
+	background-color: #fafafa;
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+	background-color: #c1c1c1;
+}
+
+
+.loading__message {
+	padding: 100px;
+	background: $color2;
+	font-size: 20px;
+	text-align: center;
+}
