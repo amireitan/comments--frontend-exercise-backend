@@ -8,7 +8,7 @@
     "url": "git+https://github.com/bigpandaio/frontend-exercise-backend.git"
   },
   "scripts": {
-    "start:all": "npm-run-all clean:tmp clean:dist dev --parallel  start:server server",
+    "start:all": "npm-run-all clean:tmp clean:dist dev --parallel start:server server",
     "start:server": "nodemon server/index.js",
     "start:dev": "npm-run-all clean:tmp clean:dist dev  server",
     "server": "webpack-dev-server",
@@ -23,12 +23,13 @@
   "homepage": "https://github.com/bigpandaio/frontend-exercise-backend#readme",
   "dependencies": {
     "axios": "^0.15.3",
-    "body-parser": "1.16.1",
     "babel-runtime": "6.22.0",
+    "body-parser": "1.16.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "4.14.1",
     "lodash": "4.17.4",
     "lorem-ipsum": "1.0.3",
+    "nodemon": "^1.11.0",
     "react": "15.4.2",
     "react-dom": "15.4.2",
     "react-redux": "5.0.2",
