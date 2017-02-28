@@ -15,13 +15,17 @@ class Comments extends Component {
     }
 
     componentWillMount() {
-        this.props.fetchCommentsData(true);
-        this.interval = window.setInterval(this.props.fetchCommentsData, 10000);
+        this.fetchComments();
+    }
+
+    fetchComments() {
+      this.props.fetchCommentsData();
+      this.timeOut = window.setTimeout(this.fetchComments.bind(this), 10000)
     }
 
     componentWillUnMount() {
-      if (this.interval) {
-        window.clearInterval(this.interval);
+      if (this.timeOut) {
+        window.clearTimeout(this.timeOut);
       }
     }
 
