@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export const PRE_FETCH_COMMENTS      = 'PRE_FETCH_COMMENTS';
 export const PRE_PUTDEL_COMMENTS     = 'PRE_PUTDEL_COMMENTS';
-export const FETCH_COMMENTS_SUCCESS  = 'FETCH_COMMENTS_SUCCESS'; 
-export const FETCH_COMMENTS_FAIL     = 'FETCH_COMMENTS_FAIL'; 
+export const FETCH_COMMENTS_SUCCESS  = 'FETCH_COMMENTS_SUCCESS';
+export const FETCH_COMMENTS_FAIL     = 'FETCH_COMMENTS_FAIL';
 export const DELETE_COMMENT_SUCCESS  = 'DELETE_COMMENT';
 export const DELETE_COMMENT_FAIL     = 'DELETE_COMMENT_FAIL';
 export const UPDATE_COMMENT_SUCCESS  = 'UPDATE_COMMENT';
@@ -47,27 +47,20 @@ export function deleteCommentFail(data, id) {
 
 ///// CRUD - functions
 
-const headers = {
-    'Content-Type': 'application/json',
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-    "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-}
-
 export function fetchCommentsData(isFirst) {
     const url  = 'http://localhost:3000/comments';
 
     return dispatch => {
         if (isFirst) dispatch(prefetchComments());
 
-        return axios.get(url, headers)
+        return axios.get(url)
             .then(function(response){
                 if (response.status >= 400) {
                     dispatch(fetchCommentsFail('Error - fetching data'));
                 }
                 console.log('---Fetching data---');
                 dispatch(fetchCommentsSuccess(response.data));
-            })  
+            })
             .catch(function(error){
                 dispatch(fetchCommentsFail('Error - fetching data'));
             });
@@ -79,14 +72,14 @@ export function putComment(id, text) {
     const data = {comment: text};
 
     return dispatch => {
-        return axios.put(url, data, headers)
+        return axios.put(url, data)
             .then(function(response){
                 if (response.status >= 400) {
                     dispatch(fetchCommentsFail('Error - fetching data'));
                 }
                 dispatch(updateCommentSucces(response.data, text));
                 dispatch(closeModal());
-            })  
+            })
             .catch(function(error){
                 dispatch(updateCommentFail('Error - while trying to update comment'));
             });
@@ -97,7 +90,7 @@ export function deleteComment(id, text) {
     const url = `http://localhost:3000/comments/${id}`;
 
     return dispatch => {
-        return axios.delete(url, headers)
+        return axios.delete(url)
             .then(function(response){
                 if (response.status >= 400) {
                     dispatch(fetchCommentsFail('Error - fetching data'));
@@ -106,7 +99,7 @@ export function deleteComment(id, text) {
                     dispatch(deleteCommentSucces(id));
                     dispatch(closeModal());
                 }
-            })  
+            })
             .catch(function(error){
                 dispatch(deleteCommentFail('Error - while trying to delete'));
             });
