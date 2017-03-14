@@ -15,13 +15,14 @@ class Comments extends Component {
     }
 
     componentWillMount() {
-        this.fetchComments();
+        this.fetchComments(30000);
     }
 
-    fetchComments() {
-      this.props.fetchCommentsData();
-      //Added to simulate polling from the server (usually we'll get feeds by websocket) 
-      this.timeOut = window.setTimeout(this.fetchComments.bind(this), 10000)
+    fetchComments(time) {
+      this.props.fetchCommentsData().then(() => {
+        if (this.timeOut) clearTimeout(this.timeOut);
+        this.timeOut = window.setTimeout(this.fetchComments.bind(this), time)
+      });
     }
 
     componentWillUnMount() {
